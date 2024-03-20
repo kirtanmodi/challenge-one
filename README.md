@@ -9,8 +9,8 @@ We have a number of [**log sources**](https://github.com/elementarycreative/chal
 ### The Objectives:
 
 1. **_Drain all of the log sources_** for both the synchronous and asynchronous solutions.
-   - [Synchronous]()
-   - [Asynchronous]()
+   - [Synchronous](https://github.com/elementarycreative/challenge-one/blob/main/solution/sync-sorted-merge.js)
+   - [Asynchronous](https://github.com/elementarycreative/challenge-one/blob/main/solution/async-sorted-merge.js)
 1. Print all of the entries, across all of the sources, in chronological order.
    - We don't need to store the log entries, just print them to stdout.
 1. Do this _efficiently_. There are time and space complexities afoot!
