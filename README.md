@@ -4,7 +4,7 @@
 
 ## Instructions
 
-We have a number of [**log sources**](). Each log source contains N log entries. Each entry is a javascript object with a timestamp and message. We don't know the number of log entries each source contains - however - we do know that the entries within each source are sorted 🕒 **chronologically** 🕒.
+We have a number of [**log sources**](https://github.com/elementarycreative/challenge-one/blob/main/lib/log-source.js). Each log source contains N log entries. Each entry is a javascript object with a timestamp and message. We don't know the number of log entries each source contains - however - we do know that the entries within each source are sorted 🕒 **chronologically** 🕒.
 
 ### The Objectives:
 
