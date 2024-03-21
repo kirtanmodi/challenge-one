@@ -1,7 +1,28 @@
 "use strict";
 
-// Print all entries, across all of the sources, in chronological order.
+const MinHeap = require("./MinHeap");
 
 module.exports = (logSources, printer) => {
-  return console.log("Sync sort complete.");
+  const minHeap = new MinHeap();
+
+  logSources.forEach((source, index) => {
+    const entry = source.pop();
+    if (entry) {
+      minHeap.push({ entry, index });
+    }
+  });
+
+  while (!minHeap.isEmpty()) {
+    const { entry, index } = minHeap.pop();
+
+    printer.print(entry);
+
+    const nextEntry = logSources[index].pop();
+
+    if (nextEntry) {
+      minHeap.push({ entry: nextEntry, index });
+    }
+  }
+
+  printer.done();
 };

@@ -1,9 +1,26 @@
 "use strict";
 
-// Print all entries, across all of the *async* sources, in chronological order.
+const MinHeap = require("./MinHeap");
 
-module.exports = (logSources, printer) => {
-  return new Promise((resolve, reject) => {
-    resolve(console.log("Async sort complete."));
-  });
+module.exports = async (logSources, printer) => {
+  const minHeap = new MinHeap();
+
+  const addLogEntryToHeap = async (source, index) => {
+    const entry = await source.popAsync();
+    if (entry) {
+      minHeap.push({ entry, index });
+    }
+  };
+
+  await Promise.all(logSources.map(addLogEntryToHeap));
+
+  while (!minHeap.isEmpty()) {
+    const { entry, index } = minHeap.pop();
+
+    printer.print(entry);
+
+    await addLogEntryToHeap(logSources[index], index);
+  }
+
+  printer.done();
 };
