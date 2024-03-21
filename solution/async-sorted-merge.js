@@ -2,6 +2,14 @@
 
 const MinHeap = require("./MinHeap");
 
+// space complexity: O(k)
+// time complexity: O(k log k + n log k)
+
+// advantages of the asynchronous function is, it is more efficient when the log sources are slow
+// or have high latency, which is common in Database operations.
+// as there is no blocking because of popAsync, the function can continue to add log entries to the heap while waiting for the
+// next log entry to be printed
+
 module.exports = async (logSources, printer) => {
   const minHeap = new MinHeap();
 
